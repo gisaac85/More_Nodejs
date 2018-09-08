@@ -1,7 +1,4 @@
-var personal = {
-    firstname: "Isaac",
-    lastname: "Gaorieh",
-    age: 33
-}
+let t = require("./triangle");
 
-console.log(personal.firstname + ' ' + personal.lastname + ' ' + personal.age);
+let s = require("./square");
+
