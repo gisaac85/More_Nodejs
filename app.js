@@ -14,14 +14,14 @@ fs.readFile('info.txt', function (err, data) {
 
 
 //Async-await
-async function readerFile() {
-    await fs.readFile('info.txt', function (err, data) {
-        if (err) return console.error(err);
-        console.log(data.toString());
+// async function readerFile() {
+//     await fs.readFile('info.txt', function (err, data) {
+//         if (err) return console.error(err);
+//         console.log(data.toString());
 
-    });
-};
+//     });
+// };
 
-readerFile();
+// readerFile();
 
 
