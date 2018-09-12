@@ -19,17 +19,30 @@
 // readerFile();
 var http = require('http');
 var url = require('url');
+var qs = require('querystring');
+
 var postHTML = "<!DOCTYPE HTML><html><head><title>TEST JS in Chrome</title></head>" +
-    "<body><div><p>My First NODE File</p><form method='post' action='/'></div><div>first Name: <input type='text' name='firstName' /></div>" +
+    "<body><div><p>My First NODE File</p><form method='POST' action='/'></div><div>first Name: <input type='text' name='firstName' /></div>" +
     "<div>last Name: <input type='text' name='lastName' /></div>" +
     "<div><input type='submit' /></div></form>" +
     "</body ></html > ";
 
 var myHttp = http.createServer((req, res) => {
-    var queryString = url.parse(req.url, true).query;
-    res.writeHead(200);
-    res.write(postHTML);
-    res.end();
+
+    if (req.method == 'POST') {
+        var body = '';
+        req.on('data', function (data) {
+            body = body + data;
+        });
+        req.on('end', function () {
+            var post = qs.parse(body);
+            console.log(JSON.stringify(post));
+
+        })
+    }
+    else {
+        res.end(postHTML);
+    }
 
 
 }).listen(8888);
