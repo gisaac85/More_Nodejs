@@ -1,0 +1,10 @@
+{
+    "mssql.connections": [{
+        "authenticationType": "SqlLogin",
+        "server": "localhost,8080",
+        "database": "mydb",
+        "user": "isaac",
+        "password": "",
+        "savePassword": true
+    }]
+}
